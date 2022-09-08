@@ -1,0 +1,22 @@
+name: cron_backup
+version: 0.1.0
+
+authors:
+  - a <breno.nunesgalvao@protonmail.ch>
+
+targets:
+  app:
+    main: src/backup.cr
+
+crystal: 1.5.1
+
+dependencies:
+  dotenv:
+    github: gdotdesign/cr-dotenv
+  awscr-s3:
+    github: taylorfinnell/awscr-s3
+  shrine:
+    github: jetrockets/shrine.cr
+    version: ~> 0.6.0
+  tasker:
+    github: spider-gazelle/tasker

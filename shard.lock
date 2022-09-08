@@ -1,0 +1,38 @@
+version: 2.0
+shards:
+  awscr-s3:
+    git: https://github.com/taylorfinnell/awscr-s3.git
+    version: 0.8.3
+
+  awscr-signer:
+    git: https://github.com/taylorfinnell/awscr-signer.git
+    version: 0.8.2
+
+  content_disposition:
+    git: https://github.com/jetrockets/content_disposition.cr.git
+    version: 1.2.0
+
+  cron_parser:
+    git: https://github.com/kostya/cron_parser.git
+    version: 0.4.0
+
+  dotenv:
+    git: https://github.com/gdotdesign/cr-dotenv.git
+    version: 1.0.0
+
+  future:
+    git: https://github.com/crystal-community/future.cr.git
+    version: 1.0.0
+
+  habitat:
+    git: https://github.com/luckyframework/habitat.git
+    version: 0.4.7
+
+  shrine:
+    git: https://github.com/jetrockets/shrine.cr.git
+    version: 0.6.5
+
+  tasker:
+    git: https://github.com/spider-gazelle/tasker.git
+    version: 2.0.7
+
