@@ -1,0 +1,12 @@
+# fly.toml file generated for cr-backup on 2022-09-08T20:59:52-03:00
+
+app = "cr-backup"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true

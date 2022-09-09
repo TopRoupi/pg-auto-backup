@@ -3,7 +3,9 @@ require "uri"
 require "dotenv"
 require "tasker"
 
-Dotenv.load
+if File.exists?("./.env")
+  Dotenv.load
+end
 
 client = Awscr::S3::Client.new(ENV["AWS_REGION"], ENV["AWS_KEY"], ENV["AWS_SECRET"])
 storage = Shrine::Storage::S3.new(bucket: ENV["AWS_BUCKET"], client: client)
