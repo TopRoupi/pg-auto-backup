@@ -38,7 +38,10 @@ def show_stats(client)
   end
 end
 
-task = Tasker.every(12.hours) do
+backup_and_save
+show_stats(client)
+
+task = Tasker.every(24.hours) do
   backup_and_save
   show_stats(client)
 end
