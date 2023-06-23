@@ -22,6 +22,9 @@ total space usage <%= bytes_to_human(objs.reduce(0) { |sum, o| sum + o.size }) %
   <br>
   <form action="/backup/<%= o.key %>/delete" method="post">
     <input type="submit" value="delete this backup">
+  </form>
+  <form action="/backup/<%= o.key %>/restore" method="post">
+    <input type="submit" value="restore the backup to a test database">
   </form> 
   ==============================
   <br>
