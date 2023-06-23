@@ -1,0 +1,25 @@
+number of backups <%= objs.size %>
+<br>
+size of the last backup <%= bytes_to_human objs.last.size %>
+<br>
+total space usage <%= bytes_to_human(objs.reduce(0) { |sum, o| sum + o.size }) %>
+<br>
+<br>
+<form action="/backup" method="post">
+  <input type="submit" value="make a new backup">
+</form> 
+<br>
+<br>
+<% objs.each do |o| %>
+  ==============================
+  <br>
+  <%= o.key %>
+  <br>
+  <%= bytes_to_human(o.size) %>
+  <br>
+  <%= o.last_modified %> 
+  <%= (Time.utc - o.last_modified).total_minutes.to_i %>
+  <br>
+  ==============================
+  <br>
+<% end %>

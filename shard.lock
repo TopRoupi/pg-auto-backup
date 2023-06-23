@@ -8,6 +8,10 @@ shards:
     git: https://github.com/taylorfinnell/awscr-signer.git
     version: 0.8.2
 
+  backtracer:
+    git: https://github.com/sija/backtracer.cr.git
+    version: 1.2.2
+
   content_disposition:
     git: https://github.com/jetrockets/content_disposition.cr.git
     version: 1.2.0
@@ -20,6 +24,10 @@ shards:
     git: https://github.com/gdotdesign/cr-dotenv.git
     version: 1.0.0
 
+  exception_page:
+    git: https://github.com/crystal-loot/exception_page.git
+    version: 0.3.0
+
   future:
     git: https://github.com/crystal-community/future.cr.git
     version: 1.0.0
@@ -27,6 +35,14 @@ shards:
   habitat:
     git: https://github.com/luckyframework/habitat.git
     version: 0.4.7
+
+  kemal:
+    git: https://github.com/kemalcr/kemal.git
+    version: 1.4.0
+
+  radix:
+    git: https://github.com/luislavena/radix.git
+    version: 0.4.1
 
   shrine:
     git: https://github.com/jetrockets/shrine.cr.git
