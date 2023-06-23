@@ -15,5 +15,5 @@ def bytes_to_human(n : Int64) : String
 end
 
 macro render_page(filename)
-  render "app/src/views/#{ {{filename}} }.ecr", "app/src/views/layouts/layout.ecr"
+  render "app/views/#{ {{filename}} }.ecr", "app/views/layouts/layout.ecr"
 end

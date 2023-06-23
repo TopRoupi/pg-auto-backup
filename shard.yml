@@ -6,7 +6,7 @@ authors:
 
 targets:
   app:
-    main: app/src/app.cr
+    main: app/server.cr
 
 crystal: 1.8.2
 
