@@ -32,4 +32,10 @@ post "/backup" do
   end
 end
 
+post "/backup/:key/delete" do |env|
+  key = env.params.url["key"]
+  AWS_STORAGE.delete(key)
+  env.redirect "/"
+end
+
 Kemal.run

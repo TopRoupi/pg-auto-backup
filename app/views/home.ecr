@@ -20,6 +20,9 @@ total space usage <%= bytes_to_human(objs.reduce(0) { |sum, o| sum + o.size }) %
   <%= o.last_modified %> 
   <%= (Time.utc - o.last_modified).total_minutes.to_i %>
   <br>
+  <form action="/backup/<%= o.key %>/delete" method="post">
+    <input type="submit" value="delete this backup">
+  </form> 
   ==============================
   <br>
 <% end %>
