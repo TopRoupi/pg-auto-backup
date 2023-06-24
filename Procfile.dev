@@ -1,0 +1,2 @@
+web: ./dev.sh
+js: yarn run dev

@@ -1,31 +1,59 @@
-number of backups <%= objs.size %>
-<br>
-size of the last backup <%= bytes_to_human objs.last.size %>
-<br>
-total space usage <%= bytes_to_human(objs.reduce(0) { |sum, o| sum + o.size }) %>
-<br>
-<br>
-<form action="/backup" method="post">
-  <input type="submit" value="make a new backup">
-</form> 
-<br>
-<br>
-<% objs.each do |o| %>
-  ==============================
-  <br>
-  <%= o.key %>
-  <br>
-  <%= bytes_to_human(o.size) %>
-  <br>
-  <%= o.last_modified %> 
-  <%= (Time.utc - o.last_modified).total_minutes.to_i %>
-  <br>
-  <form action="/backup/<%= o.key %>/delete" method="post">
-    <input type="submit" value="delete this backup">
+<kor-card>
+  <kor-text size="body-1">
+    number of backups <%= objs.size %>
+  </kor-text>
+
+  <kor-text size="body-1">
+    total space usage <%= bytes_to_human(objs.reduce(0) { |sum, o| sum + o.size }) %>
+  </kor-text>
+
+
+  <form action="/backup" method="post">
+    <button>
+      <kor-button label="New backup" color="Primary"></kor-button>
+    </button>
   </form>
-  <form action="/backup/<%= o.key %>/restore" method="post">
-    <input type="submit" value="restore the backup to a test database">
-  </form> 
-  ==============================
-  <br>
-<% end %>
+</kor-card>
+
+<br>
+<kor-divider spacing="m" orientation="horizontal"></kor-divider>
+<br>
+
+<kor-card label="Backups" style="width: 100%">
+  <kor-table>
+    <kor-table-row slot="header">
+      <kor-table-cell grid-cols="11" head>Obj name</kor-table-cell>
+      <kor-table-cell grid-cols="3" head>Size</kor-table-cell>
+      <kor-table-cell grid-cols="4" head>Created At</kor-table-cell>
+      <kor-table-cell grid-cols="3" head>Delete</kor-table-cell>
+      <kor-table-cell grid-cols="3" head>Restore</kor-table-cell>
+    </kor-table-row>
+    <% objs.each do |o| %>
+      <kor-table-row>
+        <kor-table-cell head grid-cols="11">
+          <%= o.key %>
+        </kor-table-cell>
+        <kor-table-cell head grid-cols="3">
+          <%= bytes_to_human(o.size) %>
+        </kor-table-cell>
+        <kor-table-cell head grid-cols="4">
+          <%= o.last_modified %> 
+        </kor-table-cell>
+        <kor-table-cell head grid-cols="3">
+          <form action="/backup/<%= o.key %>/delete" method="post">
+            <button>
+              <kor-button label="Delete" color="Primary" style="background-color: red !important"></kor-button>
+            </button>
+          </form>
+        </kor-table-cell>
+        <kor-table-cell head grid-cols="3">
+          <form action="/backup/<%= o.key %>/restore" method="post">
+            <button>
+              <kor-button label="Restore" color="Primary"></kor-button>
+            </button>
+          </form>
+        </kor-table-cell>
+      </kor-table-row>
+    <% end %>
+  </kor-table>
+</kor-card>

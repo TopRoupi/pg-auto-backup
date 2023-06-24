@@ -1,19 +1,14 @@
 FROM crystallang/crystal:1.8.2-alpine as crystal_dependencies
-WORKDIR /shards
-COPY shard.* ./
-RUN  shards install
-
-FROM crystallang/crystal:1.8.2-alpine as service_build
-WORKDIR /service_build
+WORKDIR /pg-backup
 COPY . .
-COPY --from=crystal_dependencies /shards/lib lib
+
+RUN apk add postgresql15-client
+RUN apk add nodejs yarn --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+
+RUN yarn install
+RUN yarn run build
+
+RUN  shards install
 RUN shards build
-RUN mv ./bin/app /usr/local/bin/crservice
 
-FROM crystallang/crystal:1.8.2-alpine as service
-WORKDIR /service
-COPY --from=service_build /usr/local/bin/crservice crservice
-
-RUN apk add --no-cache postgresql15-client
-
-CMD ["./crservice"]
+CMD ["./bin/app"]

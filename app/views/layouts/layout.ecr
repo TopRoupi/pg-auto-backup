@@ -1,8 +1,18 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <title>My Kemal Application</title>
-</head>
-<body>
-  <%= content %>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="/builds/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/builds/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
+    <title>My Kemal Application</title>
+  </head>
+  <body>
+    <kor-page theme="dark">
+      <kor-app-bar slot="top" label="PG BACKUP"></kor-app-bar>
+      <app-content style="overflow: auto !important; width: 100%;">
+        <%= content %>
+      </app-content>
+    </kor-page>
+  </body>
 </html>

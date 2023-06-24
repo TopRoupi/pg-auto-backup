@@ -15,6 +15,8 @@ Kemal::Session.config do |config|
   config.gc_interval = 2.minutes # 2 minutes
 end
 
+public_folder "app/public"
+
 require "./shrine.cr"
 require "./helpers.cr"
 
