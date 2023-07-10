@@ -81,4 +81,5 @@ post "/backup/:key/restore" do |env|
   end
 end
 
-Kemal.run
+port = (ENV["PORT"]? || 3000).to_i
+Kemal.run port
